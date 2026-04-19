@@ -3,10 +3,10 @@ kind: Kustomization
 metadata:
   name: apps
   namespace: flux-system
-spec:                 # --- Start of the "What to do" section
-  interval: 1m0s      # Under spec
-  path: ./clusters/apps/staging  # Under spec
-  prune: true         # Under spec
-  sourceRef:          # Under spec (but it's a parent itself)
+spec: # --- Start of the "What to do" section
+  interval: 1m0s # Under spec
+  path: ./apps/staging # Under spec
+  prune: true # Under spec
+  sourceRef: # Under spec (but it's a parent itself)
     kind: GitRepository # Under sourceRef
-    name: flux-system   # Under sourceRef
+    name: flux-system # Under sourceRef
