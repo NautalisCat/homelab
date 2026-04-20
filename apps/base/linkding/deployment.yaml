@@ -21,6 +21,6 @@ spec:
             - mountPath: /app/data
               name: linkding-data-pvc
       volumes:
-        - name: linkding-data
+        - name: linkding-data-pvc
           persistentVolumeClaim:
             claimName: linkding-data-pvc
