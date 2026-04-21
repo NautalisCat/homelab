@@ -12,7 +12,7 @@ spec:
       labels:
         app: linkding
     spec:
-      securityConted:
+      securityContext:
         fsGroup: 33
         runAsUser: 33
         runAsGroup: 33
