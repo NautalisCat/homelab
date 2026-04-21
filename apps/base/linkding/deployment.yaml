@@ -26,7 +26,7 @@ spec:
             allowPrivilegeEscalation: False
 
           volumeMounts:
-            - mountPath: /app/data
+            - mountPath: /etc/linkding/data
               name: linkding-data-pvc
       volumes:
         - name: linkding-data-pvc
