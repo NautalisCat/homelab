@@ -7,6 +7,10 @@ spec: # --- Start of the "What to do" section
   interval: 1m0s
   path: ./apps/staging
   prune: true
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
   sourceRef:
     kind: GitRepository
     name: flux-system
