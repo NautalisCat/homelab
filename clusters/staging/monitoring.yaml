@@ -5,5 +5,10 @@ metadata:
   namespace: flux-system
 spec: # --- Start of the "What to do" section
   interval: 1m0s
+  retryInterval: 1m
+  timeout: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
   path: ./monitoring/controllers/staging
   prune: true
