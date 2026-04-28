@@ -12,3 +12,7 @@ spec: # --- Start of the "What to do" section
     name: flux-system
   path: ./monitoring/controllers/staging
   prune: true
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
