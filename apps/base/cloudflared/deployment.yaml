@@ -75,7 +75,7 @@ data:
 
     ingress:
     - hostname: linkding.adriancreates.dev
-      service: http://linkding:9090
+      service: http://linkding.linkding:9090
     - hostname: grafana.adriancreates.dev
       service: http://kube-prometheus-stack-grafana.monitoring:80
 
