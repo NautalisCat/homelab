@@ -6,9 +6,9 @@ A personal Kubernetes homelab running on HP ProDesk 400 G4 (soon to be a cluster
 
 | Node | Role | Hardware |
 |------|------|----------|
-| Hades | Control Plane | HP ProDesk 400 G4, Intel Core i5 8000 series |
-| Persephone | Worker | — |
-| Minthe | Worker | — |
+| Hades | Control Plane | HP ProDesk 400 G4, Intel Core i5-8500T |
+| Persephone | Worker | HP ProDesk 400 G4, Intel Core i5-8500T|
+| Minthe | Worker | HP ProDesk 400 G4, Intel Core i5-8500T|
 
 ## GitOps with Flux CD
 

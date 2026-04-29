@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: audiobookshelf
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: audiobookshelf
+  template:
+    metadata:
+      labels:
+        app: audiobookshelf
+    spec:
+      securityContext:
+        fsGroup: 33
+        runAsUser: 33
+        runAsGroup: 33
+      containers:
+        - name: linkding
+          image: ghcr.io/advplyr/audiobookshelf:latest
+          ports:
+            - containerPort: 3005
+          envFrom:
+            - configMapRef:
+                name: abs-env-values
+          #   - secretRef:
+          #       name: linkding-container-env
+
+          securityContext:
+            allowPrivilegeEscalation: False
+
+          volumeMounts:
+            - mountPath: /audiobooks
+              name: abs-audiobooks
+            - mountPath: /podcasts
+              name: abs-podcasts
+            - mountPath: /config
+              name: abs-config
+            - mountPath: /metadata
+              name: abs-metadata
+      volumes:
+        - name: abs-audiobooks
+          persistentVolumeClaim:
+            claimName: abs-audiobooks
+        - name: abs-podcasts
+          persistentVolumeClaim:
+            claimName: abs-podcasts
+        - name: abs-config
+          persistentVolumeClaim:
+            claimName: abs-config
+        - name: abs-metadata
+          persistentVolumeClaim:
+            claimName: abs-metadata
+
+# services:
+#   audiobookshelf:
+#     image: ghcr.io/advplyr/audiobookshelf:latest
+#     ports:
+#       - 13378:80
+#     volumes:
+#       - </path/to/audiobooks>:/audiobooks
+#       - </path/to/podcasts>:/podcasts
+#       - </path/to/config>:/config
+#       - </path/to/metadata>:/metadata
+#     environment:
+#       - TZ=America/Toronto
