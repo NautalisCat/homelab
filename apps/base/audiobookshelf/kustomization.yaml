@@ -3,3 +3,9 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - namespace.yaml
+  - abs-audiobooks.yaml
+  - abs-config.yaml
+  - abs-metadata.yaml
+  - abs-podcasts.yaml
+  - service.yaml
+  - config.yaml
