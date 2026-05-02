@@ -1,20 +1,20 @@
 # Homelab
 
-A personal Kubernetes homelab running on HP ProDesk 400 G4 (soon to be a cluster) managed entirely through GitOps using Flux CD. This repository is the single source of truth for everything running in the cluster. If it's not in Git, it doesn't exist on the cluster.
+A personal Kubernetes homelab running on three  HP ProDesk G4's. Cluster is managed entirely through GitOps using Flux CD. This repository is the single source of truth for everything running in the cluster. If it's not in Git, it doesn't exist on the cluster.
 
 ## Infrastructure
 
 | Node | Role | Hardware |
 |------|------|----------|
-| Hades | Control Plane | HP ProDesk 400 G4, Intel Core i5-8500T |
-| Persephone | Worker | HP ProDesk 400 G4, Intel Core i5-8500T|
+| Hades | Control Plane | HP ProDesk 600 G4, Intel Core i5-8500T |
+| Persephone | Worker | HP ProDesk 600 G4, Intel Core i5-8500T|
 | Minthe | Worker | HP ProDesk 400 G4, Intel Core i5-8500T|
 
 ## GitOps with Flux CD
 
 This homelab uses [Flux CD v2](https://fluxcd.io/) to implement a full GitOps workflow. Flux watches this repository and automatically reconciles the cluster state to match what is defined here. Every change to the cluster goes through Git — no manual `kubectl apply` commands.
 
-## Repository Structure
+## Current Repository Structure
 
 ```
 homelab/
@@ -42,8 +42,8 @@ Secrets are managed using [SOPS](https://github.com/getsops/sops) with [age](htt
 
 ## Applications
 
-### Linkding
-Self-hosted bookmark manager. Runs as a non-root user with a hardened security context, persistent storage via a PVC, and superuser credentials managed through SOPS encrypted secrets.
+### Linkding, Audio Bookshelf and Mealie
+All apps runs as a non-root user with a hardened security context, persistent storage via a PVC, and superuser credentials managed through SOPS encrypted secrets.
 
 ### Cloudflare Tunnel
 All external traffic is routed through a Cloudflare tunnel — no ports are exposed on the host machine and the server's IP is never public. Traffic is encrypted end to end.
