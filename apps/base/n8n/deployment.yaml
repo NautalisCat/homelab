@@ -18,7 +18,7 @@ spec:
         runAsGroup: 1000
       containers:
         - name: n8n
-          image: gdocker.n8n.io/n8nio/n8n
+          image: ghcr.io/n8n-io/
           ports:
             - containerPort: 5678
           envFrom:
